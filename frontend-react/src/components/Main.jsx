@@ -1,8 +1,11 @@
 import React from "react";
 import Button from "./Button";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider";
 
 
 const Main = () => {
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext)
   return (
     <>
       <div className="container px-0">
@@ -16,6 +19,7 @@ const Main = () => {
             averages, which are key indicators commonly used by stock analysts
             to guide trading and investment decisions.
           </p>
+          {!isLoggedIn && <Button className={"btn btn-info"} text={"Login"} />}
           <Button className={"btn btn-info"} text={"Login"} />
         </div>
       </div>
